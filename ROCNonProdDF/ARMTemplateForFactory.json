@@ -10,6 +10,10 @@
 		"AzureBlobStorage1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"default_properties_env_value": {
+			"type": "string",
+			"defaultValue": "dev"
 		}
 	},
 	"variables": {
@@ -169,6 +173,18 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/default')]",
+			"type": "Microsoft.DataFactory/factories/globalparameters",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"env": {
+					"type": "string",
+					"value": "[parameters('default_properties_env_value')]"
 				}
 			},
 			"dependsOn": []
