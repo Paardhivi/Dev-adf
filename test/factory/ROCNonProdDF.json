@@ -1,0 +1,9 @@
+{
+	"name": "ROCNonProdDF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f947ded3-3cba-4957-bd48-6606b390eabb",
+		"tenantId": "ea030962-3f9f-4a17-9a27-c8e58a6427fa"
+	}
+}
