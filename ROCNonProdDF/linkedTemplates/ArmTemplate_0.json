@@ -165,7 +165,8 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2023-05-15T07:23:02Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Employee_source_ds')]",
