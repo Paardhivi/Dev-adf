@@ -8,12 +8,12 @@
 			"defaultValue": "ROCNonProdDF"
 		},
 		"AzureBlobStorage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+			"type": "string",
+			"defaultValue": "DefaultEndpointsProtocol=https;AccountName=rocdevsa;AccountKey=2z8eKCnFTLOwiauqT80Uadn7dYuXXbuuxSbxzFstlU6OdEAzkbIDHP+ihHyFTDKJ0KvHXaenUQrc+AStTDUPYw==;EndpointSuffix=core.windows.net"
 		},
 		"default_properties_env_value": {
 			"type": "string",
-			"defaultValue": "UAT"
+			"defaultValue": "dev"
 		}
 	},
 	"variables": {
