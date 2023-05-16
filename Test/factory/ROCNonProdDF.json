@@ -3,8 +3,11 @@
 	"properties": {
 		"globalParameters": {
 			"env": {
-				"type": "string",
-				"value": "dev"
+				"type": "array",
+				"value": [
+					"dev",
+					"qa"
+				]
 			}
 		}
 	},
