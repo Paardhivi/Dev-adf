@@ -12,11 +12,8 @@
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
 		"default_properties_env_value": {
-			"type": "array",
-			"defaultValue": [
-				"dev",
-				"qa"
-			]
+			"type": "string",
+			"defaultValue": "dev"
 		}
 	},
 	"variables": {
@@ -29,7 +26,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"env": {
-					"type": "array",
+					"type": "string",
 					"value": "[parameters('default_properties_env_value')]"
 				}
 			},
@@ -114,7 +111,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/roc-test2')]",
+			"name": "[concat(parameters('factoryName'), '/roc-test3')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {

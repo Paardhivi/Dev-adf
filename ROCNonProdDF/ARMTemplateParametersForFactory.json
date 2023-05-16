@@ -9,10 +9,7 @@
 			"value": ""
 		},
 		"default_properties_env_value": {
-			"value": [
-				"dev",
-				"qa"
-			]
+			"value": "dev"
 		}
 	}
 }
