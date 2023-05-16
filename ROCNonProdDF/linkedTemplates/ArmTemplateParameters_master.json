@@ -9,7 +9,10 @@
 			"value": ""
 		},
 		"default_properties_env_value": {
-			"value": "dev"
+			"value": [
+				"dev",
+				"qa"
+			]
 		},
 		"containerUri": {
 			"value": ""

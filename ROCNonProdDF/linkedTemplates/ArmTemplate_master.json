@@ -12,8 +12,11 @@
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
 		"default_properties_env_value": {
-			"type": "string",
-			"defaultValue": "dev"
+			"type": "array",
+			"defaultValue": [
+				"dev",
+				"qa"
+			]
 		},
 		"containerUri": {
 			"type": "string",

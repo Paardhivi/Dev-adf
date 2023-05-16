@@ -1,6 +1,9 @@
 {
 	"env": {
-		"type": "string",
-		"value": "dev10"
+		"type": "array",
+		"value": [
+			"dev",
+			"qa"
+		]
 	}
 }
