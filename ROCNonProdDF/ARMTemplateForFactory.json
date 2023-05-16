@@ -13,7 +13,7 @@
 		},
 		"default_properties_env_value": {
 			"type": "string",
-			"defaultValue": "dev"
+			"defaultValue": "dev9"
 		}
 	},
 	"variables": {
@@ -73,14 +73,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "Employee_source_ds",
+								"referenceName": "[concat('Employee_source_ds_',parameters('default_properties_env_value'))]",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "Employee_sink_ds",
+								"referenceName": "[concat('Employee_sink_ds_',parameters('default_properties_env_value'))]",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -133,7 +133,7 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/[concat('AzureBlobStorage-',parameters('default_properties_env_value'))]')]"
+				"[concat(variables('factoryId'), '/linkedServices/','AzureBlobStorage-',parameters('default_properties_env_value'))]"
 			]
 		},
 		{
@@ -161,11 +161,11 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/[concat('AzureBlobStorage-',parameters('default_properties_env_value'))]')]"
+				"[concat(variables('factoryId'), '/linkedServices/','AzureBlobStorage-',parameters('default_properties_env_value'))]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/[concat('AzureBlobStorage-',parameters('default_properties_env_value'))]')]",
+			"name": "[concat(parameters('factoryName'), '/','AzureBlobStorage-',parameters('default_properties_env_value'))]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
