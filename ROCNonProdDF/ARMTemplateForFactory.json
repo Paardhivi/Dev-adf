@@ -7,13 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "ROCNonProdDF"
 		},
-		"AzureBlobStorage_connectionString": {
+		"AzureBlobStorage1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
 		"default_properties_env_value": {
 			"type": "string",
-			"defaultValue": "dev9"
+			"defaultValue": "dev"
 		}
 	},
 	"variables": {
@@ -21,7 +21,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/roc-test-',parameters('default_properties_env_value'))]",
+			"name": "[concat(parameters('factoryName'), '/roc-test1')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -73,14 +73,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "[concat('Employee_source_ds_',parameters('default_properties_env_value'))]",
+								"referenceName": "Employee_source_ds",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "[concat('Employee_sink_ds_',parameters('default_properties_env_value'))]",
+								"referenceName": "Employee_sink_ds",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -95,17 +95,17 @@
 				"lastPublishTime": "2023-05-15T07:23:02Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Employee_source_ds_',parameters('default_properties_env_value'))]",
-				"[concat(variables('factoryId'), '/datasets/Employee_sink_ds_',parameters('default_properties_env_value'))]"
+				"[concat(variables('factoryId'), '/datasets/Employee_source_ds')]",
+				"[concat(variables('factoryId'), '/datasets/Employee_sink_ds')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Employee_sink_ds_',parameters('default_properties_env_value'))]",
+			"name": "[concat(parameters('factoryName'), '/Employee_sink_ds')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "[concat('AzureBlobStorage-',parameters('default_properties_env_value'))]",
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -133,16 +133,16 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/','AzureBlobStorage-',parameters('default_properties_env_value'))]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Employee_source_ds_',parameters('default_properties_env_value'))]",
+			"name": "[concat(parameters('factoryName'), '/Employee_source_ds')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "[concat('AzureBlobStorage-',parameters('default_properties_env_value'))]",
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -161,18 +161,18 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/','AzureBlobStorage-',parameters('default_properties_env_value'))]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/','AzureBlobStorage-',parameters('default_properties_env_value'))]",
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"type": "AzureBlobStorage",
 				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage_connectionString')]"
+					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
 				}
 			},
 			"dependsOn": []
